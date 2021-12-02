@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-</head>
-<body>
+ {% extends "base.html" %}
+ {% block content %}
     <h1>Event</h1>
     {% for event in events %}
     <h2>{{event.name}}</h2>
@@ -15,5 +8,21 @@
         <br>{{event.description}}<br>{{event.room_location}}
     </p>
     {% endfor %}
-</body>
-</html>
+    <form action="/events" method="post"> 
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name"><br>
+        <label for="date">Date</label>
+        <input type="text" name="date" id="date"><br>
+        <label for="list_of_guests">List of guests</label>
+        <input type="text" name="list_of_guests" id="list_of_guests"><br>
+        <label for="description">Discription</label>
+        <textarea name="description" id="description" cols="30" rows="2"></textarea><br>
+        <label for="room_location">Room Location</label>
+        <input type="number" name="room_location" id="room_location">
+        <input type="submit" value="Add event" >     
+
+ 
+        
+    </form>
+   
+    {% endblock %}
